@@ -1,15 +1,20 @@
 import React from 'react';
 import { useState,useEffect } from 'react';
+import Lottie from 'lottie-react';
 
 import RestauCards from './RestauCards.js';
+import animation from '../../99276-loading-utensils.json';
 
 
 export default function OrderOnline() {
     
+    const [loader , setLoader] = useState(false);
+
     const [data , setData] = useState([]);
 
     const getRestaurants = async() => {
         try {
+            setLoader(true);
             const res = await fetch('http://localhost:5000/getRestaurants',{
                 method: 'POST',
                 headers: {
@@ -18,7 +23,10 @@ export default function OrderOnline() {
             });
 
             const dat = await res.json();
-            setData(dat);
+            setTimeout(()=>{
+                setData(dat);
+                setLoader(false);
+            },1000);
         } catch(err) {
             console.log(err);
         }
@@ -31,7 +39,13 @@ export default function OrderOnline() {
     ,[]);
 
     return (
-        <>
+        <div>
+        {
+        loader ? (
+            <div className='w-32'>
+                <Lottie className='w-10' animationData={animation}/>
+            </div>
+        ) :
         <div className='container my-5'>
             <div className='container d-flex justify-content-center'>
                 <h1>Restaurants</h1>
@@ -40,6 +54,7 @@ export default function OrderOnline() {
                 {data.map((val,id)=><RestauCards kry={id} name={val.name} id={val._id}/>)}
             </div>
         </div>
-        </>
+        }
+        </div>
     );
 }

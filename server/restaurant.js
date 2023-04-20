@@ -9,7 +9,7 @@ const Restaurant = new mongoose.Schema({
         type: String,
     },
 
-    products: [],
+    products: [{name: {type: String}, price: {type: Number}}],
 });
 
 const Restau = new mongoose.model('Restaurant',Restaurant);

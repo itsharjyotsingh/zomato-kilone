@@ -38,7 +38,7 @@ export default function NavComponent(localData) {
                     <li className="nav-item">
                         <NavLink className="nav-link" to='/signup' style={disp}><h5>{localData.localData===null ? 'Signup' : ''}</h5></NavLink>
                     </li>
-                    {(id==='64370572182b02898f869243')?<li className="nav-item">
+                    {(id==='643ea3ee1c9d77e72f71bb0d')?<li className="nav-item">
                         <NavLink className="nav-link" to='/add-restaurant' style={disp}><h5>Add Restaurants</h5></NavLink>
                     </li>:<></>}
                 </ul>

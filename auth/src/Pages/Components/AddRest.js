@@ -24,7 +24,7 @@ export default function AddRest() {
                 const { name } = data;
                 const city = data.city.toLowerCase();
                  
-                fetch('http://localhost:5000/restaurants',{
+                await fetch('http://localhost:5000/restaurants',{
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/JSON',
@@ -45,11 +45,18 @@ export default function AddRest() {
 
     return (
         <div>
-            <form method='POST'>
-                <input type='text' name='name' placeholder='Restuarant Name' onChange={updateState} value={data.name}></input><br></br>
-                <input type='text' name='city' placeholder='City' onChange={updateState} value={data.city}></input><br/>
-                <button type='submit' onClick={logMeIn}>Submit</button>
-            </form>
+            
+            <div className='container my-3'>
+                <div className="form-floating mb-3">
+                    <input type="text" name='name' className="form-control" id="floatingInput" onChange={updateState} value={data.name}/>
+                    <label for="floatingInput">Restaurant Name</label>
+                </div>
+                <div className="form-floating">
+                    <input type="text" name='city' className="form-control" id="floatingPassword" onChange={updateState} value={data.city}/>
+                    <label for="floatingPassword">Restaurant City</label>
+                </div>
+                <button className='btn btn-success my-2' onClick={logMeIn}>Submit</button>
+            </div>
         </div>
     );
 }
