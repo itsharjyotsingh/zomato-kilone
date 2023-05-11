@@ -1,6 +1,9 @@
 const mongoose = require('mongoose');
 
 const Restaurant = new mongoose.Schema({
+    image: {
+        type: String,
+    },
     name: {
         type: String,
     },
@@ -9,7 +12,7 @@ const Restaurant = new mongoose.Schema({
         type: String,
     },
 
-    products: [{name: {type: String}, price: {type: Number}}],
+    products: [{name: {type: String}, price: {type: Number}, image: {type: String}}],
 });
 
 const Restau = new mongoose.model('Restaurant',Restaurant);

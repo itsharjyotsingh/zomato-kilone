@@ -16,16 +16,17 @@ export default function OrderOnline() {
         try {
             setLoader(true);
             const res = await fetch('http://localhost:5000/getRestaurants',{
-                method: 'POST',
+                method: 'GET',
                 headers: {
                     'Content-Type': 'application/JSON',
                 }
             });
-
             const dat = await res.json();
+            
+            setData(dat);
             setTimeout(()=>{
-                setData(dat);
                 setLoader(false);
+                window.scrollBy(0,400);
             },1000);
         } catch(err) {
             console.log(err);
@@ -34,27 +35,38 @@ export default function OrderOnline() {
 
     useEffect(()=>{
         getRestaurants();
-        return;
     }
     ,[]);
 
+    const loaderBox = {
+        width: '100vw',
+        height: '50vh',
+        display: 'flex',
+        justifyContent: 'center',
+    }
+
+    const loaderAnimation = {
+        width: '400px',
+        height: '400px',
+    }
+
     return (
         <div>
-        {
+            {
         loader ? (
-            <div className='w-32'>
-                <Lottie className='w-10' animationData={animation}/>
+            <div style={loaderBox}>
+                <Lottie style={loaderAnimation} animationData={animation}/>
             </div>
-        ) :
+         ) : (
         <div className='container my-5'>
-            <div className='container d-flex justify-content-center'>
+            <div className='container d-flex justify-content-start'>
                 <h1>Restaurants</h1>
             </div>
             <div className='mx-auto container d-flex justify-content-evenly my-5 flex-wrap'>
-                {data.map((val,id)=><RestauCards kry={id} name={val.name} id={val._id}/>)}
+                {data.map((val,id)=><RestauCards key={id} name={val.name} id={val._id} image={val.image}/>)}
             </div>
         </div>
-        }
+        )}
         </div>
     );
 }

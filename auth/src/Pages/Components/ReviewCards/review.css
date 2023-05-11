@@ -1,0 +1,56 @@
+.mainImage {
+    background-image: url('https://cdn.hswstatic.com/gif/play/0b7f4e9b-f59c-4024-9f06-b3dc12850ab7-1920-1080.jpg');
+    background-size: cover;
+    height: 50%;
+}
+
+.imageStyling {
+    background-image: url('https://cdn.hswstatic.com/gif/play/0b7f4e9b-f59c-4024-9f06-b3dc12850ab7-1920-1080.jpg');
+    background-size: cover;
+    height: 50%;
+}
+
+.box {
+    border-radius: 13px;
+    position: relative;
+    background-color: white;
+    filter: drop-shadow(2px 10px 8px rgba(0,0,0,0.5));
+    /* box-shadow: inset 0px 0px 8px rgba(0,0,0,0.5); */
+}
+
+.l {
+    left: 15px;
+}
+
+.r {
+    right: 15px;
+}   
+
+.sideBoxCovers {
+    padding: 7px;
+    width: 17rem;
+    height: 22rem;
+    z-index: 3;
+}
+
+.mainBox {
+    padding: 10px;
+    width: 18rem;
+    height: 25rem;
+    z-index: 5;
+}
+
+.mainIndex {
+    z-index: 4;
+}
+
+.sideIndex {
+    z-index: 2;
+}
+
+.shadow {
+    background-color: grey;
+    filter: blur(15px);
+    position: relative;
+    bottom: 550px;
+}

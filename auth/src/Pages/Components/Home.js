@@ -1,5 +1,6 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
+import Review from './ReviewCards/Review';
 
 export default function Home() {
 
@@ -25,6 +26,8 @@ export default function Home() {
                     <p className="card-text">Stay home and order to your doorstep</p>
                 </div>
             </div>
+
+            <Review/>
         </>
     );
 }

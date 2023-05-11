@@ -1,7 +1,13 @@
 import React from 'react';
+import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import Lottie from 'lottie-react'; 
+
+import circleLoader from '../../Animations/circleLoader.json';
 
 export default function RestauCards(props) {
+
+    const[loader,setLoader] = useState(true);
 
     const Navigate = useNavigate();
 
@@ -9,10 +15,24 @@ export default function RestauCards(props) {
         Navigate(`/restaurant/${e.target.name}`);
     }
 
+    const stopAnimate = () => {
+        setLoader(false);
+    }
+
+    const imageStyle = {
+        display : (loader===false)?'block' : 'none',
+        height: '200px',
+        width: '100%',
+        objectFit: 'cover',
+    }
+
     return (
         <>
             <div className="card my-2" style={{"width": "18rem"}}>
-                <img src="https://assets.gqindia.com/photos/62a9d4653e8cdc9b632eb2ad/16:9/w_2560%2Cc_limit/10%2520restaurants%2520in%2520Mumbai%2520that%2520offer%2520the%2520best%2520sunset%2520views.jpg" className="card-img-top" alt="restaurant-img"/>
+                {
+                    (loader) ? <Lottie animationData={circleLoader} loop={true}/>:''
+                }
+                <img src={props.image} style={imageStyle} onLoad={stopAnimate} className="card-img-top" alt="restaurant-img"/>
                     <div className="card-body">
                         <h5 className="card-title">{props.name}</h5>
                         <p className="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>

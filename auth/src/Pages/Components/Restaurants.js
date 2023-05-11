@@ -9,29 +9,22 @@ export default function Restaurants() {
 
     useEffect(()=>{getRestaurants()},[]);
 
-    function getRestaurants() {
-        fetch('http://localhost:5000/getRestaurants',{
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/JSON',
-            }
-        })
-        .then((res)=>{
-            res.json()
-            .then((ress)=>{
-                console.log('Putting data');
-                ress.map((val)=>{
-                    setMila((prev)=>[
-                        ...prev,
-                        val
-                    ])
-                })
-            })
-        })
-        .catch((err)=>{
+    const getRestaurants = async() =>{
+        try {
+            const data = await fetch('http://localhost:5000/getRestaurants',{
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/JSON',
+                }
+            });
+
+            setMila(await data.json());
+
+        } catch(err) {
             console.log(err);
-        })
+        }
     }
+
     return (
         <>
             <h1>Restaurants</h1>
