@@ -6,7 +6,7 @@ const mongoose = require('mongoose');
 const Restau = require('./restaurant.js');
 const products = require('./product.js');
 const bcrypt = require('bcrypt');
-const saltRounds = process.env.SALT;
+const saltRounds = process.env.SALT || 5;
 
 const DATABASE = process.env.DATABASE;
 const PRT = process.env.PORT || 5000;

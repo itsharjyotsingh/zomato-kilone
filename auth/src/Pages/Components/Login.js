@@ -58,8 +58,6 @@ export default function Login({setFun,localData}) {
         setFun(null);
     }
 
-    // if(localStorage.getItem)
-
     return (
         <>
             {(localData===null)?

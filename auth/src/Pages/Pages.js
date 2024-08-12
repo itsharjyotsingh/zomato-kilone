@@ -29,10 +29,10 @@ export default function Pages() {
 
     return (
         <>
-        <div style={ myStyle }>
-            <NavComponent localData={localData}/>
-            <Branding/>
-        </div>
+            <div style={myStyle}>
+                <NavComponent localData={localData} />
+                <Branding />
+            </div>
 
         <Routes>
             <Route path='/' element={<Home/>}/>

@@ -15,7 +15,7 @@ export default function NavComponent(localData) {
 
     var id='';
     if(localStorage.getItem('data')!=='null') {
-        id = JSON.parse(localStorage.getItem('data'))._id;
+        id = JSON.parse(localStorage.getItem('data'))._id ?? " ";
     }
 
     return (
@@ -38,7 +38,7 @@ export default function NavComponent(localData) {
                     <li className="nav-item">
                         <NavLink className="nav-link" to='/signup' style={disp}><h5>{localData.localData===null ? 'Signup' : ''}</h5></NavLink>
                     </li>
-                    {(id==='64370572182b02898f869243')?<li className="nav-item">
+                        {(id ==='651081a20dfe37a71c122190')?<li className="nav-item">
                         <NavLink className="nav-link" to='/add-restaurant' style={disp}><h5>Add Restaurants</h5></NavLink>
                     </li>:<></>}
                 </ul>
