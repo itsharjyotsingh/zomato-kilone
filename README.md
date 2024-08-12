@@ -36,24 +36,24 @@ Follow these steps to set up the project locally:
 1. **Clone the repository:**
 
    ```bash
-   git clone https://github.com/yourusername/zomato-clone.git
-   cd zomato-clone
+   git clone https://github.com/itsharjyotsingh/zomato-kilone.git
+   cd zomato-kilone
 2. **Install dependencies:**
    ```bash
-   cd client
+   cd auth
    npm install
    cd ../server
    npm install
 3. **Setup environmental variables:**
    ```bash
-   MONGO_URI=your_mongodb_connection_string
-   JWT_SECRET=your_jwt_secret
-   CLOUDINARY_CLOUD_NAME=your_cloud_name
-   CLOUDINARY_API_KEY=your_api_key
-   CLOUDINARY_API_SECRET=your_api_secret
+   DATABASE="mongodb+srv://harjyotk2:<password>@auth.3npdzxh.mongodb.net/?retryWrites=true&w=majority"
+   SALT=10
 4. **Run the application:**
    ```bash
+   cd auth
    npm run start
+   cd server
+   node app.js
 ## Usage
 
 - **User Registration/Login:** Sign up or log in to access features like adding and managing restaurants.
